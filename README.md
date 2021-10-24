@@ -49,8 +49,6 @@ optional arguments:
 ```
 
 
-# TODO
+# Issues
 
-* If the `i3-appvindicator` was launched before the controlled app (technically, when the controlled app was hidden),
-middle click won't work. Add listener to run gtk indicator the moment the controlled app is launched
-gtk app whenever the controlled app is launched.
+* sometimes middle click doesn't work. unstable between reruns of the tray app
