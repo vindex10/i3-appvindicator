@@ -1,0 +1,21 @@
+#!/usr/bin/env python
+
+from argparse import ArgumentParser
+from i3appvindicator.i3appvindicator import i3AppVindicator
+
+
+def main(title, icon, floating, criteria):
+    app = i3AppVindicator(title, icon, floating=floating)
+    app.set_criteria(*criteria)
+    app.run()
+
+
+if __name__ == "__main__":
+    parser = ArgumentParser()
+    parser.add_argument("-t", "--title", type=str, help="Indicator app title")
+    parser.add_argument("-i", "--icon", type=str, help="Indicator app icon (find in /usr/share/icons)")
+    parser.add_argument("-f", "--floating", action="store_true", help="The controlled app is floating")
+    parser.add_argument("criteria", nargs="+", help="Criteria to match window. Check i3 docs for syntax")
+
+    parsed = parser.parse_args()
+    main(parsed.title, parsed.icon, parsed.floating, parsed.criteria)
